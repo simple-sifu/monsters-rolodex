@@ -6,20 +6,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      monsters: [
-       {
-         name: 'Frankenstein',
-         id: 'asc1'
-       } ,
-       {
-        name: 'Dracula',
-        id: 'asc2'
-       },
-       {
-        name: 'Zombie',
-        id: 'asc3'
-       }
-      ]
+      monsters: []
     };
 
   }
@@ -33,10 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div className = 'App'>
-        <CardList NAME='YIHUA'>
-        {this.state.monsters.map(monster =><h1 key={monster.id}>{monster.name}</h1>)}
-          </CardList>
-       
+        <CardList monsters={this.state.monsters} />
       </div>
     )
 
