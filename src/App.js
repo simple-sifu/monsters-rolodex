@@ -11,12 +11,19 @@ class App extends React.Component {
       searchField: ''
     };
 
+    // this.handleChange = this.handleChange.bind(this);  
+
   }
 
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => this.setState({monsters: users}));
+  }
+
+  // will see this and bind it to where it was declared....bind this context to place where they were defined.
+  handleChange =(e) => {
+    this.setState({searchField: e.target.value})
   }
 
   render() {
@@ -26,7 +33,7 @@ class App extends React.Component {
       <div className = 'App'>
         <SearchBox 
           placeholder="search monsters" 
-          handleChange={e => this.setState({searchField: e.target.value})}
+          handleChange={this.handleChange}
         />
         <CardList monsters={filteredMonsters} />
       </div>
