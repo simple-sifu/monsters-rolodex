@@ -1,10 +1,11 @@
 import React from 'react';
-import './card-list.styles.css';
+import './styles.css';
+import { Card } from './card';
 
 export const CardList = ({monsters}) => (
     <div className='card-list'>
         {monsters.map(monster =>(
-            <h1 key={monster.id}>{monster.name}</h1>
+            <Card key={monster.id} monster={monster} />
         ))}
     </div>
 );
